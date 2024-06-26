@@ -1,3 +1,9 @@
+
+
+pipeline {
+  agent any
+
+    
 triggers {
     GenericTrigger(
       genericVariables: [
@@ -19,3 +25,13 @@ triggers {
       regexpFilterText: '$ref'
     )
   }
+
+    
+  stages {
+    stage('Some step') {
+      steps {
+        sh "echo $ref"
+      }
+    }
+  }
+}
